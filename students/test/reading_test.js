@@ -25,7 +25,7 @@ describe("Read the data", () => {
     // });
 
     it("Find one of the jasons", async () => {
-        const students = await Student.findOne({id: jason._id});
+        const students = await Student.findOne({_id: jason._id});
         console.log(students);
         assert(students.name === 'Jason')
     })
