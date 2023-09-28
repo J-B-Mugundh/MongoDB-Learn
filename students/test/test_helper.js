@@ -11,6 +11,11 @@ mongoose.connection
     } )
 
 beforeEach((done) => {
-        mongoose.connection.collections.students.drop();
-        done(); // to indicate that cleaning is over and mocha can now continue
-})
+        mongoose.connection.collections.students.drop((err) => {
+          if (err) {
+            console.warn("An error occurred while dropping the collection", err);
+          }
+        done(); // Call 'done' after the drop operation is complete
+    });
+});
+      
