@@ -7,3 +7,8 @@ mongoose.connection
     .on("error", (error) => {
         console.warn("An error occurred", error)
     } )
+
+beforeEach((done) => {
+        mongoose.connection.collections.students.drop();
+        done(); // to indicate that cleaning is over and mocha can now continue
+})
